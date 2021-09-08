@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 
-const Form = () =>{
-    const  [inputText, setInputText] = useState("")
+const Form = ({inputText, setInputText}) =>{
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
     }
     const submitTodoHandler = (e) => {
-        console.log(inputText)
+        e.preventDefault();
+        if(inputText){
+            setInputText("1")
+        }
     }
 
     return (
@@ -15,7 +17,6 @@ const Form = () =>{
             <button onClick={submitTodoHandler} className="todo-button" type="submit" data-testid="add-button">
                 <i className="fas fa-plus-square"></i>
             </button>
-
         </form>
     )
 }
