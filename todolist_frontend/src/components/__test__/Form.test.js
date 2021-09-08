@@ -16,14 +16,14 @@ it("renders correctly", () => {
 });
 
 
-// describe("Input Value", () => {
-//     it("updates on change", () => {
-//         const {queryByPlaceHolderText} = render([Form])
+describe("Input Value", () => {
+    it("updates on change", () => {
+        const component = render(<Form/>)
 
-//         const todoInput = queryByPlaceHolderText("Add Todo")
+        const todoInput = component.getByPlaceholderText("Add Todo")
 
-//         fireEvent.change(todoInput, {target: {value: "test"}})
+        fireEvent.change(todoInput, {target: {value: "test"}})
 
-//         expect(todoInput.value).toBe("test")
-//     })
-// })
+        expect(todoInput.value).toBe("test")
+    })
+})
