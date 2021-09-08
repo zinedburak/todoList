@@ -1,12 +1,17 @@
 import React from "react"
 import {render,fireEvent, queryByPlaceholderText} from '@testing-library/react'
 import Form from "../Form"
+import "@testing-library/jest-dom/extend-expect"
+
 
 it("renders correctly", () => {
 
-    const {queryByTestId, queryByPlaceHolderText} = render(<Form />);
-    expect(queryByTestId("add-button")).toBeTruthy();
-    expect(queryByPlaceHolderText("Add Todo")).toBeTruthy();
+    const component = render(<Form />);
+    const button = component.getByTestId("add-button");
+    const input_text = component.getByPlaceholderText("Add Todo");
+    expect(button).toBeTruthy;
+    expect(input_text).toBeTruthy;
+    
 
 });
 
