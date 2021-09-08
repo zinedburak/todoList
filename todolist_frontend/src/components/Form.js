@@ -1,14 +1,20 @@
-import React, { useState } from "react"
+import React from "react"
+import nextId from "react-id-generator"
 
-const Form = ({inputText, setInputText}) =>{
+const Form = ({inputText, setInputText, todos, setTodos}) =>{
     const inputTextHandler = (e) => {
         setInputText(e.target.value);
+        console.log("Burak")
+        console.log(inputText)
     }
     const submitTodoHandler = (e) => {
         e.preventDefault();
-        if(inputText){
-            setInputText("1")
-        }
+        console.log("inputText")
+        
+        const todoId = nextId();
+        setTodos([...todos,{text: inputText, id: todoId}]);
+        setInputText("5")
+        
     }
 
     return (
