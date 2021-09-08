@@ -4,6 +4,7 @@ import Form from "../Form"
 import "@testing-library/jest-dom/extend-expect"
 
 
+
 it("renders correctly", () => {
     
     const component = render(<Form/>)
@@ -25,33 +26,26 @@ describe("Input Value", () => {
         fireEvent.change(todoInput, {target: {value: "test"}})
 
         expect(todoInput.value).toBe("test")
+        expect(setInputText).toHaveBeenCalled()
     })
 })
 
-describe("Add Button" , () => {
-    describe("calls function when pressed with no input text" , () => {
-        it("it does not trigger anything" , () => {
-            const setInputText = jest.fn();
-            const component = render(<Form setInputText={setInputText}/>)
-            const todoInput = component.getByPlaceholderText("Add Todo")
-            const addButton = component.getByTestId("add-button")
+describe("Add Button" , () => {    
+    it(" The function Triggers " , () => {
+        const setTodos = jest.fn();
+        const setInputText = jest.fn();
+        const todos = new Array();
+        
+        const component = render(<Form setTodos={setTodos} todos={todos} setInputText={setInputText}/>)
+        const todoInput = component.getByPlaceholderText("Add Todo")
+        const addButton = component.getByTestId("add-button")
 
-            fireEvent.click(addButton)
+        fireEvent.change(todoInput, {target: {value: "test"}})
+        fireEvent.click(addButton)
 
-            expect(setInputText).not.toHaveBeenCalled()
-        })
+        expect(todoInput.value).toBe("test")
+        expect(setInputText).toHaveBeenCalled()
+        //expect(setTodos).toHaveBeenCalled()
     })
-    describe("calls function when pressed with input data" ,() => {
-        it("it does trigger anything" , () => {
-            const setInputText = jest.fn();
-            const component = render(<Form setInputText={setInputText}/>)
-            const todoInput = component.getByPlaceholderText("Add Todo")
-            const addButton = component.getByTestId("add-button")
 
-            fireEvent.change(todoInput, {target: {value: "test"}})
-            fireEvent.click(addButton)
-
-            expect(setInputText).toHaveBeenCalled()
-        })
-    })
 })
