@@ -3,17 +3,13 @@ import nextId from "react-id-generator"
 
 const Form = ({inputText, setInputText, todos, setTodos}) =>{
     const inputTextHandler = (e) => {
-        setInputText(e.target.value);
-        console.log("Burak")
-        console.log(inputText)
+        setInputText(e.target.value)
     }
     const submitTodoHandler = (e) => {
         e.preventDefault();
-        console.log("inputText")
         
         const todoId = nextId();
         setTodos([...todos,{text: inputText, id: todoId}]);
-        setInputText("5")
         
     }
 
