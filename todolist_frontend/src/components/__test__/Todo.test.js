@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import {render,fireEvent, queryByPlaceholderText} from '@testing-library/react'
+import React from "react"
+import { render } from '@testing-library/react'
 import Todo from "../Todo"
 import "@testing-library/jest-dom/extend-expect"
 
