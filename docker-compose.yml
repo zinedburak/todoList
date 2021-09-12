@@ -30,8 +30,19 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+  
+  tests_backend:
+    image: todolist_backend
+    command:
+      bash -c "go test ./tests"
+    links: 
+      - db
+      - backend
+
+  tests_frontend:
+    image: todolist_frontend
+    command: 
+      bash -c "cd ./src/components/__test__/ && npm run test"
+    links: 
+      - backend
+      
