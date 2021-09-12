@@ -5,11 +5,18 @@ const Form = ({inputText, setInputText, todos, setTodos}) =>{
     const inputTextHandler = (e) => {
         setInputText(e.target.value)
     }
-    const submitTodoHandler = (e) => {
-        e.preventDefault();
-        
+    const submitTodoHandler = async (e) => {
         const todoId = nextId();
         setTodos([...todos,{text: inputText, id: todoId}]);
+        const response = await fetch('http://localhost:8000/api/add_todos',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                text: inputText,
+                completed: 'false',
+            })
+        });
+        const content = await response.json();
         
     }
 
