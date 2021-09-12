@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect"
 
 
 it("renders correctly", () => {
-    const todo = {text: "Dummy Test",id: 0}
+    const todo = {content: "Dummy Test",id: 0}
     const component = render(<Todo todo={todo} />)
 
     const todo_item = component.getByTestId("todo")
