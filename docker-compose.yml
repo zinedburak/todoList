@@ -31,18 +31,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
   
-  tests_backend:
-    image: todolist_backend
-    command:
-      bash -c "go test ./tests"
-    links: 
-      - db
-      - backend
+  # tests_backend:
+  #   image: todolist_backend
+  #   command:
+  #     bash -c "go test ./tests"
+  #   links: 
+  #     - db
+  #     - backend
 
-  tests_frontend:
-    image: todolist_frontend
-    command: 
-      bash -c "cd ./src/components/__test__/ && npm run test"
-    links: 
-      - backend
+  # tests_frontend:
+  #   image: todolist_frontend
+  #   command: 
+  #     bash -c "cd ./src/components/__test__/ && npm run test"
+  #   links: 
+  #     - backend
       
