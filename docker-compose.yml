@@ -28,7 +28,7 @@ services:
   # tests_frontend:
   #   image: todolist_frontend
   #   command: 
-  #     bash -c "cd ./src/components/__test__/ && npm run test"
+  #     bash -c "cd ./src/components/__test__/ && npm test -- --testPathIgnorePatterns Acceptance.test.js"
   #   links: 
   #     - backend
       
