@@ -4,9 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/stretchr/testify/assert"
 	"math/rand"
 	"net/http"
 	"net/http/httptest"
@@ -15,19 +12,23 @@ import (
 	"time"
 	"todolist_backend/database"
 	"todolist_backend/routes"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSetup(t *testing.T) {
 	tests := []struct {
-		description string
-		method 		string
-		route       string
+		description  string
+		method       string
+		route        string
 		expectedCode int
 	}{
 		// First test
 		{
 			description:  "get todos test",
-			method: 	  "GET",
+			method:       "GET",
 			route:        "/api/get_todos",
 			expectedCode: 200,
 		},
@@ -60,24 +61,24 @@ func TestSetup(t *testing.T) {
 		randInt := rand.Intn(10000)
 		text := strconv.Itoa(randInt)
 
-		if test.method == "POST"{
+		if test.method == "POST" {
 			postBody := map[string]interface{}{
-				"text": text,
+				"text":      text,
 				"completed": "false"}
 			body, _ := json.Marshal(postBody)
-			req = httptest.NewRequest(test.method, test.route,  bytes.NewReader(body))
+			req = httptest.NewRequest(test.method, test.route, bytes.NewReader(body))
 
 			req.Header.Set("Content-Type", "application/json")
-		}else {
-			req = httptest.NewRequest(test.method, test.route,  nil)
+		} else {
+			req = httptest.NewRequest(test.method, test.route, nil)
 		}
 		//fmt.Println(req)
-	////
-		resp, err := app.Test(req,100)
+		////
+		resp, err := app.Test(req, 10000)
 		//fmt.Println(err.Error())
 		//fmt.Println(resp.Status)
-	//
-		if err != nil{
+		//
+		if err != nil {
 			fmt.Println(err.Error())
 		}
 

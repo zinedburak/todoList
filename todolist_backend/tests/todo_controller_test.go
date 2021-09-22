@@ -48,7 +48,7 @@ func TestGetTodos(t *testing.T) {
 
 	// creating a http request to the get_todos
 	req := httptest.NewRequest("GET", "/api/get_todos", nil)
-	resp, _ := app.Test(req, 100)
+	resp, _ := app.Test(req, 10000)
 
 	// Parsing the response to a raw string
 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
@@ -79,7 +79,7 @@ func TestAddTodos(t *testing.T) {
 	body, _ := json.Marshal(postBody)
 	req := httptest.NewRequest("POST", "/api/add_todos", bytes.NewReader(body))
 	req.Header.Set("Content-Type", "application/json")
-	_, err := app.Test(req, 100)
+	_, err := app.Test(req, 10000)
 	dbResult_After_Add := GetResultFromDB()
 
 	if err != nil {
@@ -111,7 +111,7 @@ func TestIntegrationAddTodos(t *testing.T) {
 	body, _ := json.Marshal(postBody)
 	req := httptest.NewRequest("POST", "/api/add_todos", bytes.NewReader(body))
 	req.Header.Set("Content-Type", "application/json")
-	_, err := app.Test(req, 100)
+	_, err := app.Test(req, 10000)
 	// Checking if there is any error
 	if err != nil {
 		fmt.Println(err.Error())
@@ -137,7 +137,7 @@ func TestIntegrationGetTodos(t *testing.T) {
 
 	// Getting todos table with our GetTodos API
 	reqGetTodosEmpty := httptest.NewRequest("GET", "/api/get_todos", nil)
-	respGetTodosEmpty, _ := app.Test(reqGetTodosEmpty, 100)
+	respGetTodosEmpty, _ := app.Test(reqGetTodosEmpty, 10000)
 
 	// Parsing the response to a raw string
 	bodyBytesEmptyTable, _ := ioutil.ReadAll(respGetTodosEmpty.Body)
@@ -155,7 +155,7 @@ func TestIntegrationGetTodos(t *testing.T) {
 	body, _ := json.Marshal(postBody)
 	reqAddTodos := httptest.NewRequest("POST", "/api/add_todos", bytes.NewReader(body))
 	reqAddTodos.Header.Set("Content-Type", "application/json")
-	_, err := app.Test(reqAddTodos, 100)
+	_, err := app.Test(reqAddTodos, 10000)
 
 	if err != nil {
 		fmt.Println(err.Error())
@@ -166,7 +166,7 @@ func TestIntegrationGetTodos(t *testing.T) {
 
 	// Getting todos table wit our GetTodos API  after adding a todo_object
 	reqGetTodosFilled := httptest.NewRequest("GET", "/api/get_todos", nil)
-	respGetTodosFilled, _ := app.Test(reqGetTodosFilled, 100)
+	respGetTodosFilled, _ := app.Test(reqGetTodosFilled, 10000)
 
 	// Parsing the response to a raw string
 	bodyBytesFilledTable, _ := ioutil.ReadAll(respGetTodosFilled.Body)
