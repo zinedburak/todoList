@@ -1,9 +1,9 @@
 # TodoList Application
 
-[![Node.js CI](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml/badge.svg)](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml)
+[![Frontend CI](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml/badge.svg)](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml)
+[![Backend CI](https://github.com/zinedburak/todoList/actions/workflows/go.yml/badge.svg)](https://github.com/zinedburak/todoList/actions/workflows/go.yml)
 
 This is a simple TodoList application that is created by React and Go
-
 # How To Run The Application
 - Make sure that you have docker installed
 - Run the "docker-compose up --build" command inside the main folder that you clone the project
