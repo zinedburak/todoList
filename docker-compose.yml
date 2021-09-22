@@ -17,26 +17,12 @@ services:
       - "8000:8000"
     container_name: backend-docker
     restart: always
-    links:
-      - db
-  # Create database container
-  db:
-    image: postgres
-    ports:
-    - "5432:5432"
-    container_name: database-docker
-    restart: always
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
   
   # tests_backend:
   #   image: todolist_backend
   #   command:
   #     bash -c "go test ./tests"
   #   links: 
-  #     - db
   #     - backend
 
   # tests_frontend:
