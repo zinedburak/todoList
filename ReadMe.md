@@ -1,6 +1,6 @@
 # TodoList Application
 
-
+[![Node.js CI](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml/badge.svg)](https://github.com/zinedburak/todoList/actions/workflows/node.js.yml)
 
 This is a simple TodoList application that is created by React and Go
 
