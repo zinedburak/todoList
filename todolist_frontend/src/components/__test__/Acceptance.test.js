@@ -1,10 +1,14 @@
 import puppeteer from 'puppeteer'
 import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom"
 
 
 
     it("Passes Acceptance Test", async () => {
+        jest.setTimeout(10000);
         const browser = await puppeteer.launch();
+        
+        try{
         const page = await browser.newPage();
         await page.goto("http://localhost:3000/");
         
@@ -17,9 +21,11 @@ import "@testing-library/jest-dom/extend-expect"
         const todoItemValue = await todoItem.evaluate((el) => el.textContent)
 
         expect(todoItemValue).toContain("test1")
-
-        browser.close();
-        
+        }
+        finally{
+            browser.close();
+        }
     })
+
 
 
