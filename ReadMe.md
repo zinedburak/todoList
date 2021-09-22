@@ -16,7 +16,8 @@ This is a simple TodoList application that is created by React and Go
 - Create a user interface for only adding ToDo's -- Completed
 - Create a backend service to store the persistent state of ToDo List -- Completed
 - Writing deployment files for the front-end and back-end -- Completed
-- Automating build, test, and deployment of the application via CI/CD (Not completed)
+- Automating build and test of the application (Completed)
+- Automating deployment of the application via CI/CD (Not completed)
 
 # Development Cycle Of The Application
 ## Frontend
@@ -55,5 +56,16 @@ After completing the frontend part of the application I started my TDD for the b
 
 ## Dockerization
 - Created Dockerfile for the front end backend services
-- Created docker-compose file to compose the frontend backend and database in the same container
+- Created docker-compose file to compose the frontend backend in the same container
 - Added commands to run frontend and backend tests when the container first runs
+
+
+## Build and Test Automation
+- Created CI pipeline with github actions for frontend
+    - In this pipeline the frontend part of the application checkedout to github servers
+    - After the check out the fronted is built wiht npm run build
+    - When the build is complete all the tests expect the Acceptance test runs and produces a result 
+- Created CI pipeline with github actions for backend
+    - In this pipeline the backend part of the application checkedout to github servers
+    - In the github servers the backend is built with go build -v ./.. command
+    - After build we ran tests in the tests directory with go test command
