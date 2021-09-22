@@ -9,7 +9,6 @@ This is a simple TodoList application that is created by React and Go
 - Run the "docker-compose up --build" command inside the main folder that you clone the project
 - The application will be built and run with the above command
 - If you want to run the tests in the docker please go to the docker-compose file and uncomment the tests_backend and tests_frontend parts of the code and run the "docker-compose up --build" command again
-- The Acceptance test fails when it runs in docker image since it could not install chromium and mimic user. But it passes without any problems when the application built locally.
 - Go to localhost:3000 and enjoy your todo application
 
 # Acceptance Test
@@ -35,7 +34,7 @@ After the initial application was created I started my TDD:
 - I implemented the todo and todolist components. Basically, these todolist component creates Todo component for each todos in the application.
 - Refactored the tests one last time for tidying up the code.
 - After the backend was implemented changed the dummy business logic with the API calls to the get todo and add todo functions
-- After the feedback I created an acceptance test using puppeteer that tries to add a new todo item mimicking a user
+- After the feedback I created an acceptance test using puppeteer that adds a new todo item mimicking a user
 
 At this point, I had a fully functioning frontend application that was capable of adding todos and showing them from the memory
 
