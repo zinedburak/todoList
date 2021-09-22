@@ -19,6 +19,9 @@ jobs:
         go-version: 1.17
     - name: Folder Change
       run : cd todolist_backend
+    - name: Current Folder
+      run : echo $PWD
+      
       
     - name: Build
       run: go build -v ./...
