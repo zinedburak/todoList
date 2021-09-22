@@ -17,7 +17,7 @@ const Form = ({inputText, setInputText, todos, setTodos}) =>{
                 completed: 'false',
             })
         });
-        const content = await response.json();
+        await response.json();
         window.location.reload();
         
     }
