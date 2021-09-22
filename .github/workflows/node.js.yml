@@ -33,5 +33,5 @@ jobs:
       working-directory: ./todolist_frontend
     - run: npm run build --if-present
       working-directory: ./todolist_frontend
-    - run: npm test
+    - run: npm test -- --testPathIgnorePatterns Acceptance.test.js
       working-directory: ./todolist_frontend/src/components/__test__
